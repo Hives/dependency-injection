@@ -5,10 +5,10 @@ describe Diary do
     it 'adds a diary entry' do
       title = "title"
       body = "body"
-      entry = double("entry")
+      entry = double(:entry)
       allow(entry).to receive(:title).and_return(title)
       allow(entry).to receive(:body).and_return(body)
-      entry_class = double("Entry")
+      entry_class = double(:Entry)
       allow(entry_class).to receive(:new).with(title, body).and_return(entry)
       diary = Diary.new(entry_class)
       expect(diary.add(title, body)).to eq [entry]
@@ -22,9 +22,9 @@ describe Diary do
         { title: "Title 02", body: "Body 02" },
         { title: "Title 03", body: "Body 03" },
       ]
-      entry_class = double("Entry")
+      entry_class = double(:Entry)
       entries_data.each do |e|
-        entry = double("entry")
+        entry = double(:entry)
         allow(entry).to receive(:title).and_return(e[:title])
         allow(entry).to receive(:body).and_return(e[:body])
         allow(entry_class).to receive(:new).with(e[:title], e[:body])

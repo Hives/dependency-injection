@@ -7,7 +7,7 @@ class Diary
   end
 
   def add(title, body)
-    @entries << @Entry.new(title, body)
+    @entries << @entry.new(title, body)
   end
 
   def index
