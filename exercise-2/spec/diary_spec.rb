@@ -18,9 +18,9 @@ describe Diary do
   describe '#index' do
     it 'prints the titles' do
       entries_data = [
-        {title: "Title 01", body: "Body 01"},
-        {title: "Title 02", body: "Body 02"},
-        {title: "Title 03", body: "Body 03"},
+        { title: "Title 01", body: "Body 01" },
+        { title: "Title 02", body: "Body 02" },
+        { title: "Title 03", body: "Body 03" },
       ]
       entry_class = double("Entry")
       entries_data.each do |e|

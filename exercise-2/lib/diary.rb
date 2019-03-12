@@ -3,7 +3,7 @@ require 'entry'
 class Diary
   def initialize(entry = Entry)
     @entries = []
-    @Entry = entry
+    @entry = entry
   end
 
   def add(title, body)
