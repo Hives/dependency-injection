@@ -14,6 +14,6 @@ class Diary
     titles = @entries.map do |entry|
       entry.title
     end
-    titles.join("\r")
+    titles.join("\n")
   end
 end
