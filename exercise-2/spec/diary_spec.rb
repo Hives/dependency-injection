@@ -2,14 +2,22 @@ require 'diary'
 
 describe Diary do
   describe '#add' do
-    it 'adds a diary entry' do
-      title = "title"
-      body = "body"
-      entry = double(:entry)
-      entry_class = double(:Entry)
-      allow(entry_class).to receive(:new).with(title, body).and_return(entry)
-      diary = Diary.new(entry_class)
-      expect(diary.add(title, body)).to eq [entry]
+    before :each do
+      @title = :a_title
+      @body = :a_body
+      @entry = double(:entry)
+      @entry_class = double(:entry)
+      allow(@entry_class).to receive(:new).and_return(@entry)
+      @diary = described_class.new(@entry_class)
+    end
+
+    it "calls Entry.new with arguments 'title' and 'body'" do
+      @diary.add(@title, @body)     
+      expect(@entry_class).to have_received(:new).with(@title, @body).once
+    end
+
+    it 'stores a diary entry' do
+      expect(@diary.add("title", "body")).to eq [@entry]
     end
   end
 
